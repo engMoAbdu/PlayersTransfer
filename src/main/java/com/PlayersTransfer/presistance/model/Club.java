@@ -31,10 +31,13 @@ public class Club {
 		private Set<Player> players = new HashSet<Player>();
 	    
 	    @ManyToMany
-		@JoinTable(name = "people_parties", 
+		@JoinTable(name = "clubs_users", 
 			joinColumns = @JoinColumn(name = "club_id", referencedColumnName = "club_id"), 
 			inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"))
-		private Set<User> people = new HashSet<User>();
+		private Set<User> ubdateClub = new HashSet<User>();
+	    
+	    @ManyToMany(mappedBy="joiningClub")
+		private Set<Player> registration = new HashSet<Player>();
 	    
 		public Integer getId() {
 			return id;
@@ -66,5 +69,21 @@ public class Club {
 
 		public void setPlayers(Set<Player> players) {
 			this.players = players;
+		}
+
+		public Set<User> getUbdateClub() {
+			return ubdateClub;
+		}
+
+		public void setUbdateClub(Set<User> ubdateClub) {
+			this.ubdateClub = ubdateClub;
+		}
+
+		public Set<Player> getRegistration() {
+			return registration;
+		}
+
+		public void setRegistration(Set<Player> registration) {
+			this.registration = registration;
 		}
 }

@@ -3,18 +3,14 @@ package com.PlayersTransfer.presistance.model;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
 @Entity // This tells Hibernate to make a table out of this class
@@ -30,12 +26,11 @@ public class User {
 
 	private int age;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JsonBackReference
-	@JoinTable(name = "user_club",
-		joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"),
-		inverseJoinColumns = @JoinColumn(name = "club_id", referencedColumnName = "club_id"))
-	private Set<Club> parties = new HashSet<Club>();
+	@ManyToMany(mappedBy="ubdateClub")
+	private Set<Club> ubdate = new HashSet<Club>();
+	
+	@ManyToMany(mappedBy="PlayersTransfer")
+	private Set<Player> Transfer = new HashSet<Player>();
 	
 	public int getAge() {
 		return age;
@@ -69,11 +64,19 @@ public class User {
 		this.email = email;
 	}
 
-	public Set<Club> getParties() {
-		return parties;
+	public Set<Club> getUbdate() {
+		return ubdate;
 	}
 
-	public void setParties(Set<Club> parties) {
-		this.parties = parties;
+	public void setUbdate(Set<Club> ubdate) {
+		this.ubdate = ubdate;
+	}
+
+	public Set<Player> getTransfer() {
+		return Transfer;
+	}
+
+	public void setTransfer(Set<Player> transfer) {
+		Transfer = transfer;
 	}
 }
