@@ -1,0 +1,11 @@
+com\PlayersTransfer\MainApplication.class
+com\PlayersTransfer\presistance\repository\UserRepository.class
+com\PlayersTransfer\presistance\model\Club.class
+com\PlayersTransfer\presistance\repository\ClubRepository.class
+com\PlayersTransfer\web\controller\UserController.class
+com\PlayersTransfer\web\controller\PlayerController.class
+com\PlayersTransfer\presistance\repository\PlayerRepository.class
+com\PlayersTransfer\web\controller\ClubController.class
+com\PlayersTransfer\exception\ResourceNotFoundException.class
+com\PlayersTransfer\presistance\model\User.class
+com\PlayersTransfer\presistance\model\Player.class
